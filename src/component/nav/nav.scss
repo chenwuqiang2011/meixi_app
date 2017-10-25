@@ -1,0 +1,79 @@
+.mx-nav{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 90%;
+	height: 100%;
+	background: #666;
+	z-index: 999;
+	.mx-del{
+		position: absolute;
+		top: 0;
+		right: 0;
+		font-size: 0.32rem;
+		width: 0.9rem;
+		height: 0.9rem;
+		line-height: 0.9rem;
+		color: #fff;
+		text-align: center;
+		z-index: 99;
+	}
+	.ph_d {
+	    width: 100%;
+	    height: 0.88rem;
+	    background: #222;
+	    border-bottom: 0.01rem solid #444;
+	    position: relative;
+	    z-index: 3;
+	    .nav_search {
+	        margin: 0.1rem 0 0 0.2rem;
+		    .nav_search_m {
+		        width: 3.5rem;
+		        height: 0.6rem;
+		        background: #333;
+		        border-radius: 0.6rem 0 0 0.6rem;
+		        padding-left: 0.6rem;
+		        input {
+		            width: 100%;
+		            height: 0.48rem;
+		            line-height: 0.48rem;
+		            font-size: 0.28rem;
+		            color: #fff;
+		            margin-top: 0.06rem;
+		            background: none;
+		            border: none;
+		            outline: none;
+		        }
+		    }
+		    .nav_search_btn {
+		        width: 0.8rem;
+		        height: 0.6rem;
+		        border: none;
+		        outline: none;
+		        border-radius: 0 0.6rem 0.6rem 0;
+		        background: #333 url(../../assets/imgs/search_nav.png) center center no-repeat;
+		        background-size: 0.32rem 0.32rem;
+		    }
+	    }
+		.float_l {
+		    float: left;
+		    display: inline;
+		}
+	}
+}
+.isrollMask {
+    background: #000;
+    opacity: .5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+.tac{
+	position: relative;
+	left: 0;
+	top: 0;
+	z-index:4;
+}

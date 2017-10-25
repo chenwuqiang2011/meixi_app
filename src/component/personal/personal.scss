@@ -1,0 +1,131 @@
+.personal{
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	.acc_bg {
+	    width: 100%;
+	    height: 2.9rem;
+	    background: url(../../assets/imgs/personalbg.jpg) no-repeat;
+	    background-size: cover;
+	    padding-top: 0.6rem;
+	    overflow: hidden;
+	    position: relative;
+	    .acc_user {
+		    width: 1.6rem;
+		    height: 1.6rem;
+		    border-radius: 1.6rem;
+		    overflow: hidden;
+		    background: #fff;
+		    border: solid 0.01rem #eee;
+		    margin: 0 auto;
+		    position: relative;
+		    z-index: 2;
+		    .acc_user_img {
+			    width: 1.52rem;
+			    height: 1.52rem;
+			    border-radius: 1.52rem;
+			    overflow: hidden;
+			    margin: 0.04rem;
+			    text-align: center;
+			    img{
+			    	text-align: center;
+			    }
+			}
+		}
+		.acc_info {
+		    text-align: center;
+		    color: #fff;
+		    line-height: 1.4;
+		    margin-top: 0.16rem;
+		    position: relative;
+		    z-index: 2;
+		    .acc_name{
+		    	font-size: 0.32rem;
+		    }
+		    .acc_level{
+		    	font-size: 0.24rem;
+		    }
+		    .acc_logout{
+		    	font-size: 0.28rem;
+		    	color: red;
+		    }
+		}
+		.acc_bg_mask {
+		    width: 100%;
+		    height: 60%;
+		    background: #fff;
+		    opacity: .4;
+		    position: absolute;
+		    bottom: 0;
+		    left: 0;
+		    z-index: 1;
+		}
+	}
+	.clearfix{
+		background: #fff;
+		overflow: hidden;
+	    .clearfix:after {
+		    display: block;
+		    clear: both;
+		    content: ".";
+		    visibility: hidden;
+		    height: 0;
+		}
+	    li{
+	    	float: left;
+	    	width: 33%;
+	    	a{
+	    		display: block;
+			    padding: 0.5rem 0;
+			    border-right: solid 0.01rem #ccc;
+			    border-bottom: solid 0.01rem #ccc;
+			    em{
+		    	    display: block;
+				    width: 0.7rem;
+				    height: 0.6rem;
+				    margin: 0 auto;
+				    background: url(../../assets/imgs/accico.png) no-repeat;
+				    background-size: auto 0.6rem;
+			    }
+			    .accList_txt {
+				    text-align: center;
+				    padding: 0.1rem;
+				    color: #999;
+				    line-height: 1.2;
+				    font-size: 0.24rem;
+				    span{
+				    	font-size: 0.2rem;
+				    }
+				}
+	    	}
+	    	.accList_order em {
+			    background-position: -35px 0;
+			}
+			.accList_fav em {
+			    background-position: -70px 0;
+			}
+			.accList_coupon em {
+			    background-position: -105px 0;
+			}
+			.accList_address em {
+			    background-position: -140px 0;
+			}
+			.accList_about em {
+			    background-position: -175px 0;
+			}
+	    }
+	}
+	.acc_phone {
+	    display: block;
+	    background: #e8203b;
+	    color: #fff;
+	    text-align: center;
+	    font-size: 0.24rem;
+	    padding: 0.1rem 0;
+	    margin-bottom: 0.2rem;
+	    .acc_phone img {
+		    vertical-align: middle;
+		    margin-right: 0.04rem;
+		}
+	}
+}

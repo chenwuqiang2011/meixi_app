@@ -1,0 +1,98 @@
+body, html, p, h1, h2, h3, ul, li{
+	padding: 0;
+	margin: 0;
+	}
+html, body{
+	width: 100%;
+	height: 100%;
+	font-size: 0.32rem;
+	background: #f5f5f5;
+	color: #666;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+.mx-home{
+	width: 100%;
+	height: 100%;
+	.mx-header{
+		width: 100%;
+		background: #000;
+		height: 0.9rem;
+		.mx-nav-p{
+			width: 10%;
+			// height: 100%;
+			// float: left;
+			height: 0.9rem;
+			position: absolute;
+			top: 0;
+			left: 0;
+			box-sizing: border-box;
+			border-right: 0.01rem solid #555;
+			background: url(../../assets/imgs/mx-nav.gif) no-repeat center center;
+			background-size: 0.375rem 0.45rem;
+		}
+		h1{
+			// float: left;
+			// width: 70%;
+			width: 100%;
+			height: 0.9rem;
+			line-height: 0.9rem;
+			font-size: 0.32rem;
+			color: #fff;
+			text-align: center;
+		}
+		.mx-header-r{
+			// float: left;
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 20%;
+			height: 0.9rem;
+			.mx-car{
+				float: left;
+				width: 50%;
+				height: 100%;
+				background: url(../../assets/imgs/h01.gif) no-repeat center center;
+				background-size: 0.75rem 0.9rem;
+			}
+			.mx-information{
+				float: left;
+				width: 50%;
+				height: 100%;
+				background: url(../../assets/imgs/h02.gif) no-repeat center center;
+				background-size: 0.75rem 0.9rem;
+			}
+		}
+	}
+	.mx-lamp{
+		width: 100%;
+		text-align: center;
+	}
+	.el-tabs{
+		height: 12.44rem;
+		overflow: hidden;
+		.el-tabs__content{
+			height: 12.02rem;
+			overflow: auto;
+		}
+		.el-tabs__nav{
+			color: #000;
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			.el-tabs__item{
+				width: 33.33%!important;
+				text-align: center;
+			}	
+		}
+		.el-carousel img{
+			width: 100%;
+			height: 3.75rem;
+		}
+	}
+} 
