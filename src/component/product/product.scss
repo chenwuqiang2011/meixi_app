@@ -1,76 +1,233 @@
 .meixi-details{
 	width: 100%;
-	.details-img{
-		text-align: center;
-		background: #fff;
-		margin-bottom: 0.1rem;
-		height: 7.5rem;
-		display: flex;
-		img{
-			width: 70%;
-			height: 70%;
-			margin: auto;
-		} 
-	}
-	.details-name{
-		text-align: left;
-		padding-left: 0.2rem;
-		background: #fff;
-		width: 100%;
+	height: 100%;
+	.details{
+		height: 100%;
+		overflow-x: hidden;
+		padding-bottom: 1.8rem;
 		box-sizing: border-box;
-		.prodetailName{
-			width: 100%;
-			.cp_global{
-				display: inline-block;
-			    border: solid 1px #868686;
-			    color: #666;
-			    margin: 5px 5px 0 0;
-			    font-size: 12px;
-			    width: 45px;
-			    text-align: center;
-			}
-			a{
-				font-size: 16px;
-				color: #333;
-			}
-			span{
-				color: #999;
-			}
+		.details-img{
+			text-align: center;
+			background: #fff;
+			margin-bottom: 0.1rem;
+			height: 7.5rem;
+			display: flex;
+			img{
+				width: 70%;
+				height: 70%;
+				margin: auto;
+			} 
 		}
-		.prodetailPrice{
+		.details-name{
+			text-align: left;
+			padding-left: 0.2rem;
+			background: #fff;
 			width: 100%;
 			box-sizing: border-box;
-			overflow: hidden;
-			padding: 0.1rem 0;
-			.float_l{
-				float: left;
-				font-size: 0.32rem;
-			}
-			.float_l:before{
-				content: "￥";
-			}
-			.float_r{
-				float: right;
-				position: relative;
-				height: 100%;
-				width: 50%;
-				text-align: right;
-				em{
-					display: block;
-					width: 0.28rem;
-					height: 0.22rem;
-					background: url(../../assets/imgs/detailicon.png) -80px 0 no-repeat;
-					background-size: 1.86rem 0.48rem;
-					position: absolute;
-					left: 70%;
-					top: 0.1rem;
+			.prodetailName{
+				width: 100%;
+				.cp_global{
+					display: inline-block;
+				    border: solid 1px #868686;
+				    color: #666;
+				    margin: 5px 5px 0 0;
+				    font-size: 12px;
+				    width: 45px;
+				    text-align: center;
+				}
+				a{
+					font-size: 16px;
+					color: #333;
 				}
 				span{
-					padding-right: 0.2rem;
 					color: #999;
-					font-size: 0.28rem;
+				}
+			}
+			.prodetailPrice{
+				width: 100%;
+				box-sizing: border-box;
+				overflow: hidden;
+				padding: 0.1rem 0;
+				.float_l{
+					float: left;
+					font-size: 0.32rem;
+				}
+				.float_l:before{
+					content: "￥";
+				}
+				.float_r{
+					float: right;
+					position: relative;
+					height: 100%;
+					width: 50%;
+					text-align: right;
+					em{
+						display: block;
+						width: 0.28rem;
+						height: 0.22rem;
+						background: url(../../assets/imgs/detailicon.png) -80px 0 no-repeat;
+						background-size: 1.86rem 0.48rem;
+						position: absolute;
+						left: 70%;
+						top: 0.1rem;
+					}
+					span{
+						padding-right: 0.2rem;
+						color: #999;
+						font-size: 0.28rem;
+					}
 				}
 			}
 		}
+		.desc{
+			margin-top: 0.1rem;
+			background: #fff;
+			padding: 0.2rem;
+			table{
+				text-align: left;
+				th{
+					font-weight: 500;
+				}
+				.color{
+					display: block;
+					width: 0.8rem;
+					height: 0.64rem;
+					line-height: 0.64rem;
+					background: #333;
+					padding: 0 0.2rem;
+					min-width: 0.8rem;
+					text-align: center;
+					border-radius: 0.06rem;
+					color: #fff;
+					margin: 0.1rem 0;
+				}
+				ul{
+					display: flex;
+					flex-direction: row;
+					flex-wrap: wrap;
+					li{
+						display: block;
+						width: 0.8rem;
+						height: 0.64rem;
+						line-height: 0.64rem;
+						padding: 0 0.2rem;
+						min-width: 0.8rem;
+						text-align: center;
+						border: 1px solid #ddd;
+						border-radius: 0.06rem;
+						margin: 0.1rem 0.2rem 0.1rem 0;
+					}
+					.size-active{
+						background: #333;
+						color: #fff;
+					}
+				}
+			}
+		}
+		.product-msg{
+			margin-top: 0.1rem;
+			background: #fff;
+			padding: 0.2rem;
+			p{
+				padding: 0.2rem 0;
+			}
+			table{
+				width: 100%;
+				th{
+					width: 2rem;
+					padding: 3px 0;
+					vertical-align: top;
+				}
+				td{
+					word-wrap: break-word;
+    				overflow: hidden;
+    				padding: 3px 0;
+    				vertical-align: top;
+				}
+			}
+			.picture{
+				width: 100%;
+				display: flex;
+				img{
+					margin: auto;
+				}
+			}
+		}
+	}
+	.cartFooter{
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width:100%;
+		.cartFooter_l{
+			height: 0.9rem;
+			float: left;
+			width: 50%;
+			ul{
+				width: 100%;
+				height: 100%;
+				background: #f3f4f6;
+				display: flex;
+				flex-direction: row;
+				li{
+					flex: 1;
+					display: flex;
+					border-right: 0.01rem solid #ddd;
+					margin: 0.1rem 0;
+					em{
+						margin: auto;
+						display: block;
+						width: 0.4rem;
+						height: 0.44rem;
+						background: url(../../assets/imgs/detailicon.png) no-repeat;
+						background-size: 1.86rem 0.48rem;
+					}
+					.contact{
+						background-position: 0 0;
+					}
+					.collected{
+						background-position: -0.8rem 0;
+					}
+					.share{
+						background-position: -0.4rem 0;
+					}
+				}
+			}
+		}
+		.cartFooter_r{
+			float: right;
+			width: 50%;
+			display: flex;
+			flex-direction: row;
+			span{
+				flex: 1;
+				display: block;
+				width: 100%;
+				height: 0.9rem;
+				line-height: 0.9rem;
+				text-align: center;
+				font-size: 0.28rem;
+				color: #fff;
+			}
+			.addCart{
+				background: #000;
+			}
+			.buyNow{
+				background: red;
+			}
+		}
+	}
+	#msg{
+		position:fixed; 
+		bottom: 0.9rem; 
+		right: 0; 
+		z-index:10000; 
+		width:1px; 
+		height:52px; 
+		line-height:52px; 
+		text-align:center; 
+		color:#fff; 
+		background:#360; 
+		display:none;
 	}
 }
