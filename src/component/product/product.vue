@@ -124,33 +124,76 @@
 	export default {
 		data: function(){
 			return {
-				product: []
+				product: [],
+				currentProduct: []
 			}
 		},
 		created: function(){
 			var id = this.$store.state.home.currentId;
-			console.log(123, id)
+			console.log(123, id, this.product)
 			axios.post(url.global.baseurl + 'getProduct', qs.stringify({id})).then(function(res){
-				console.log(res);
+				console.log(res.data.data);
 				if(res.data.status){
 					this.product = res.data.data[0];
+					this.$store.state.home.product = [res.data.data[0]];
+					this.currentProduct.push(res.data.data[0])
+					console.log(this.product, this.$store.state.home.product)
+					// this.product.qty = 1;
 				}
-			}.bind(this))
+			}.bind(this));
+
 		},
 		mounted: function(){
-
+			$("<li/>").text('123').appendTo($('.size'));
 			//码数选择；
-			$('.size').on('click', 'li', function(){
+			$('.size').on('click', 'li', function(e){
 
-				console.log($(this).text());
 				$(this).addClass('size-active').siblings().removeClass('size-active');
 			});
 
+			
 			//购物车飞人动画；
 			var offset = $("#end").offset();
 			var that = this;
 			$(".addCart").click(function(event){
-				console.log('jjljl', that.product.imgurl)
+				// //购物车商品信息;
+				// var product;
+				// if(localStorage.product){
+				// 	product = JSON.parse(localStorage.product);
+				// 	that.$store.state.home.product = JSON.parse(localStorage.product);
+				// 	console.log('product', product, localStorage.product, JSON.parse(localStorage.product)[0])
+					
+				// } else {
+				// 	product = [];
+				// };
+				
+
+				// if(product.length <= 0){
+				// 	that.$store.state.home.product.push(that.product);
+				// 	product.push(that.product);
+				// 	//将数据写到localStorage；
+				// 	localStorage.setItem('product', JSON.stringify(that.$store.state.home.product));
+				// }else{
+
+				// 	that.$store.state.home.product.map((item, idx)=>{
+				// 		console.log(item.ID,product.indexOf(that.currentProduct),  that.$store.state.home.currentId, product,that.currentProduct[0])
+						
+				// 		if(item.ID == that.$store.state.home.currentId){
+				// 			item.qty++;                                                           
+				// 		}
+
+				// 	});
+
+				// 	if(that.$store.state.home.product.indexOf(that.currentProduct[0]) < 0){
+				// 		console.log(that.$store.state.home.product, that.product)
+				// 		alert('没有该商品')
+				// 	}
+				// 	//将数据写到localStorage；
+				// 	localStorage.setItem('product', JSON.stringify(that.$store.state.home.product));
+				// }
+
+				
+
 				var addcar = $(this);
 				
 				var flyer = $('<img class="u-flyer" src="src/assets/imgs/'+that.product.imgurl+'">');
@@ -172,8 +215,8 @@
 			});
 		},
 		methods: {
-			addCart: function(){
-				console.log(this.$store.state.home.currentId);
+			addCart: function(e){
+				console.log(this.$store.state.home.currentId, e.target);
 
 			}
 		}
