@@ -91,6 +91,8 @@
 	    	
 	    	console.log('username', username);
 	    	this.username = username;
+            this.$store.state.home.username = username;
+            console.log('name', this.$store.state.home.username)
 	    },
         methods: {
             logout: function(){

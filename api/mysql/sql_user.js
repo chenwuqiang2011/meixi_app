@@ -51,6 +51,47 @@ module.exports = {
 			}
 
 		})
+	},
+	address: function(table, data, callback){
+		var username = data.username;
+		var address = [data.address];
+
+		//先查询用户原来地址；
+		var condition = 'select * from '+ table +' where username = ?';
+		sql.query(condition, [username], function(err, results, fields){
+			if(results[0].address == ''){console.log('没有')
+				address = JSON.stringify(address);
+				console.log('66',address)
+			} else{
+				console.log('68',results[0].address);
+				var res = JSON.parse(results[0].address);
+				res.map(item=>{
+					if(address[0].value == 'true'){
+						item.value = false;
+					}
+					address.push(item);
+					console.log('push',item)
+				});
+				address = JSON.stringify(address);
+				console.log('75', address);
+			}
+			//用户新增地址；
+
+			var modSql = 'UPDATE ' + table +' SET address = ? WHERE username = ?';
+			//查询数据库
+			sql.query(modSql, [address, username], function(err,results,fields){
+				callback({status: true, message: '地址添加成功！', data: results});
+			});
+			
+		})
+	},
+	getAddress: function(table, data, callback){
+		var username = data.username;
+		//先查询用户原来地址；
+		var condition = 'select * from '+ table +' where username = ?';
+		sql.query(condition, [username], function(err, results, fields){
+			callback({status: true, message: '查询到地址！', data: results});
+		})
 	}
 }
 

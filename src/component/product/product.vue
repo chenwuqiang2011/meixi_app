@@ -124,7 +124,7 @@
 	export default {
 		data: function(){
 			return {
-				product: [],
+				product: {},
 				currentProduct: []
 			}
 		},
@@ -134,11 +134,13 @@
 			axios.post(url.global.baseurl + 'getProduct', qs.stringify({id})).then(function(res){
 				console.log(res.data.data);
 				if(res.data.status){
+					res.data.data[0].qty = 1;
 					this.product = res.data.data[0];
-					this.$store.state.home.product = [res.data.data[0]];
-					this.currentProduct.push(res.data.data[0])
-					console.log(this.product, this.$store.state.home.product)
-					// this.product.qty = 1;
+					// this.$store.state.home.product[0] = res.data.data[0];
+					this.currentProduct[0] = res.data.data[0];
+					console.log(this.product, (this.currentProduct[0] == this.$store.state.home.product[0]))
+					//判断两个数组是否相等；
+					// alert(this.product.toString() == this.$store.state.home.product.toString());
 				}
 			}.bind(this));
 
@@ -156,43 +158,42 @@
 			var offset = $("#end").offset();
 			var that = this;
 			$(".addCart").click(function(event){
-				// //购物车商品信息;
-				// var product;
-				// if(localStorage.product){
-				// 	product = JSON.parse(localStorage.product);
-				// 	that.$store.state.home.product = JSON.parse(localStorage.product);
-				// 	console.log('product', product, localStorage.product, JSON.parse(localStorage.product)[0])
-					
-				// } else {
-				// 	product = [];
-				// };
+				//购物车商品信息;
+				var cart;
+				if(localStorage.cart){
+					cart = JSON.parse(localStorage.cart);
+					that.$store.state.home.product = JSON.parse(localStorage.cart);					
+				} else {
+					cart = [];
+				};
 				
+				console.log("that.$store.state.home.product", that.$store.state.home.product)
+				if(cart.length <= 0){
+					//购物车为空时，加入购物车
+					that.$store.state.home.product.push(that.product);
+					cart.push(that.product);
 
-				// if(product.length <= 0){
-				// 	that.$store.state.home.product.push(that.product);
-				// 	product.push(that.product);
-				// 	//将数据写到localStorage；
-				// 	localStorage.setItem('product', JSON.stringify(that.$store.state.home.product));
-				// }else{
+					//将数据写到localStorage；
+					localStorage.setItem('cart', JSON.stringify(that.$store.state.home.product));
+					console.log('cart', cart);
+				}else{
+					that.$store.state.home.product.map((item, idx)=>{
+						if(item.ID == that.$store.state.home.currentId){
 
-				// 	that.$store.state.home.product.map((item, idx)=>{
-				// 		console.log(item.ID,product.indexOf(that.currentProduct),  that.$store.state.home.currentId, product,that.currentProduct[0])
-						
-				// 		if(item.ID == that.$store.state.home.currentId){
-				// 			item.qty++;                                                           
-				// 		}
+							//购物车有相同的商品时，直接数量+1；
+							item.qty++;
+							console.log('qty++', that.$store.state.home.product);
+						}else if(idx == that.$store.state.home.product.length - 1 ){
 
-				// 	});
+							//当购物车没有相同的商品时，添加商品到购物车
+							that.$store.state.home.product.push(that.product);
+						}
+					})
 
-				// 	if(that.$store.state.home.product.indexOf(that.currentProduct[0]) < 0){
-				// 		console.log(that.$store.state.home.product, that.product)
-				// 		alert('没有该商品')
-				// 	}
-				// 	//将数据写到localStorage；
-				// 	localStorage.setItem('product', JSON.stringify(that.$store.state.home.product));
-				// }
+					//将最近购物车重新写到localStorage;
+					localStorage.setItem('cart', JSON.stringify(that.$store.state.home.product));
 
-				
+				}
 
 				var addcar = $(this);
 				

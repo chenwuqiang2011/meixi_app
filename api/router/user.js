@@ -11,7 +11,7 @@ exports.register = function (app){
 		sql.login('user', request.body, function(data){
 			response.send(data);
 		})
-	})
+	});
 	//用户注册；
 	app.post("/register", urlencodedParser, function(request, response){
 		console.log('data', request.body)
@@ -19,6 +19,20 @@ exports.register = function (app){
 		sql.register("user", request.body, function(data){
 			//返回数据到页面；
 			console.log(6666)
+			response.send(data);
+		})
+	});
+	//新增用户地址；
+	app.post("/address", urlencodedParser, function(request, response){
+		//请求数据库；
+		sql.address("user", request.body, function(data){
+			response.send(data);
+		})
+	});
+	//查询用户地址；
+	app.post("/getAddress", urlencodedParser, function(request, response){
+		//请求数据库；
+		sql.getAddress("user", request.body, function(data){
 			response.send(data);
 		})
 	})

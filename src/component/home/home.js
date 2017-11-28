@@ -5,7 +5,8 @@ import {Notification} from 'element-ui';
 const state = {
 	show: false,
 	currentId: null,
-	product: []
+	product: [],
+	username: ''
 };
 const actions = {
 	timer: (store, n)=>{

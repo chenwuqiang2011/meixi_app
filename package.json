@@ -37,6 +37,7 @@
     "sass-loader": "^5.0.1",
     "style-loader": "^0.16.1",
     "url-loader": "^0.5.8",
+    "v-distpicker": "^1.0.12",
     "vue-loader": "^12.1.0",
     "vue-template-compiler": "^2.3.3",
     "vue-validator": "^3.0.0-alpha.2",

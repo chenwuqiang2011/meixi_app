@@ -43,6 +43,7 @@ exports.register = function (app){
 	//查询单个商品；
 	app.post('/getProduct', urlencodedParser, function(request, response){
 		sql.getProduct('products', request.body, function(data){
+			console.log(data.data);
 			response.send(data);
 		})
 	});
