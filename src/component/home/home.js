@@ -6,7 +6,8 @@ const state = {
 	show: false,
 	currentId: null,
 	product: [],
-	username: ''
+	username: '',
+	idx: ''
 };
 const actions = {
 	timer: (store, n)=>{

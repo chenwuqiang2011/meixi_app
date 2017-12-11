@@ -35,5 +35,12 @@ exports.register = function (app){
 		sql.getAddress("user", request.body, function(data){
 			response.send(data);
 		})
-	})
+	});
+	//更新用户地址；
+	app.post("/updateAddress", urlencodedParser, function(request, response){
+		//请求数据库；
+		sql.updateAddress("user", request.body, function(data){
+			response.send(data);
+		})
+	});
 }

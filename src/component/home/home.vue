@@ -9,7 +9,9 @@
 			<!-- </router-link> -->
 			<h1>美西</h1>
 			<div class="mx-header-r">
-				<div class="mx-car"></div>
+				<router-link to = "/cart">
+					<div class="mx-car"></div>
+				</router-link>
 				<router-link to = "/login">
 					<div class="mx-information"></div>
 				</router-link>

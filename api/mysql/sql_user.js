@@ -78,7 +78,7 @@ module.exports = {
 			//用户新增地址；
 
 			var modSql = 'UPDATE ' + table +' SET address = ? WHERE username = ?';
-			//查询数据库
+			
 			sql.query(modSql, [address, username], function(err,results,fields){
 				callback({status: true, message: '地址添加成功！', data: results});
 			});
@@ -91,6 +91,22 @@ module.exports = {
 		var condition = 'select * from '+ table +' where username = ?';
 		sql.query(condition, [username], function(err, results, fields){
 			callback({status: true, message: '查询到地址！', data: results});
+		})
+	},
+	updateAddress: function(table, data, callback){
+		var username = data.username;
+		var address = JSON.stringify(data.address);
+		console.log(1)
+
+		//先查询用户原来地址；
+		var modSql = 'UPDATE ' + table +' SET address = ? WHERE username = ?';
+		sql.query(modSql, [address, username], function(err, results, fields){
+
+			//查询用户地址；
+			var condition = 'select * from '+ table +' where username = ?';
+			sql.query(condition, [username], function(err, results, fields){
+				callback({status: true, message: '地址更新成功！', data: results});
+			})
 		})
 	}
 }

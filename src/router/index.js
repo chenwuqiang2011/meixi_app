@@ -9,8 +9,10 @@ import account from '../component/account/account.vue';
 import goodslist from '../component/goodslist/goodslist.vue';
 import product from '../component/product/product.vue';
 import address from '../component/address/address.vue';
+import edit from '../component/edit/edit.vue';
 import add from '../component/add/add.vue';
 import nav2 from '../component/nav/nav2.vue';
+import cart from '../component/cart/cart.vue';
 
 
 Vue.use(VueRouter);
@@ -29,7 +31,9 @@ const router = new VueRouter({
 				{path: '/goodslist', component: goodslist},
 				{path: '/product', component: product},
 				{path: '/address', component: address},
-				{path: '/add', component: add}
+				{path: '/edit', component: edit},
+				{path: '/add', component: add},
+				{path: '/cart', component: cart}
 			]
 		}
 		//{path: '/home', component: foodlist},设置默认级路由并显示；

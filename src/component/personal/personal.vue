@@ -14,12 +14,12 @@
         <div class="accList">
             <ul class="clearfix">
                 <li>
-                    <a class="accList_acc" href="/member/account.html">
+                    <router-link to = "/account">
                         <em></em>
                         <div class="accList_txt">
                             我的账户<br><span>ACCOUNT</span>
                         </div>
-                    </a>
+                    </router-link>
                 </li>
                 <li style="width:34%">
                     <a class="accList_order" href="/member/account/myorder.html">
@@ -46,12 +46,12 @@
                     </a>
                 </li>
                 <li style="width:34%">
-                    <a class="accList_address" href="/member/address.html">
+                    <router-link class="accList_address" to="/address">
                         <em></em>
                         <div class="accList_txt">
                             我的地址<br><span>ADDRESS</span>
                         </div>
-                    </a>
+                    </router-link>
                 </li>
                 <li>
                     <a class="accList_about" href="/services/about.html" style="border-right:none;">
