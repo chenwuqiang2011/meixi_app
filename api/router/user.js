@@ -43,4 +43,11 @@ exports.register = function (app){
 			response.send(data);
 		})
 	});
+	//获取用户收藏的商品；
+	app.post("/getCollected", urlencodedParser, function(request, response){
+		//请求数据库；
+		sql.getCollected("user", request.body, function(data){
+			response.send(data);
+		})
+	});
 }

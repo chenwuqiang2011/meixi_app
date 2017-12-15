@@ -13,6 +13,7 @@ import edit from '../component/edit/edit.vue';
 import add from '../component/add/add.vue';
 import nav2 from '../component/nav/nav2.vue';
 import cart from '../component/cart/cart.vue';
+import myInfo from '../component/myInfo/myInfo.vue';
 
 
 Vue.use(VueRouter);
@@ -33,7 +34,8 @@ const router = new VueRouter({
 				{path: '/address', component: address},
 				{path: '/edit', component: edit},
 				{path: '/add', component: add},
-				{path: '/cart', component: cart}
+				{path: '/cart', component: cart},
+				{path: '/myInfo', component: myInfo}
 			]
 		}
 		//{path: '/home', component: foodlist},设置默认级路由并显示；

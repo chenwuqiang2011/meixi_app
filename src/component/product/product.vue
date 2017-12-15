@@ -3,6 +3,7 @@
 		<div class="details">
 			<div class="details-img">
 				<img :src='"src/assets/imgs/" + product.imgurl'  alt="">
+				<!-- <img-zoom :src='"src/assets/imgs/" + product.imgurl' width="450" height="250" :bigsrc= '"src/assets/imgs/" + product.imgurl' :configs="configs"></img-zoom> -->
 			</div>
 			<div class="details-name">
 	            <div class="prodetailName">
@@ -97,7 +98,7 @@
 						<em class="contact"></em>
         			</li>
         			<li>
-						<em class="collected"></em>
+						<em @click = "collected"></em>
         			</li>
         			<li>
 						<em class="share"></em>
@@ -121,12 +122,19 @@
 	import axios from 'axios';
 	import qs from 'qs';
 	import '../../assets/common/jquery.fly.min.js';
+	//放大镜;
+	// import imgZoom from 'vue2.0-zoom';
+
 	export default {
 		data: function(){
 			return {
 				product: {},
-				currentProduct: []
+				currentProduct: [],
+				collectGoods: []
 			}
+		},
+		components: {
+			// imgZoom
 		},
 		created: function(){
 			var id = this.$store.state.home.currentId;
@@ -219,6 +227,53 @@
 			addCart: function(e){
 				console.log(this.$store.state.home.currentId, e.target);
 
+			},
+			collected: function(e){
+				//获取用户收藏的商品；
+				var collected;
+				var id = this.$store.state.home.currentId;
+	            var username = localStorage.getItem('username');
+	            if(username){
+	                username = JSON.parse(localStorage.getItem('username')).username;
+	            } else {
+	                username = null;
+	            }
+		    	
+		    	if(username){
+		    		$(e.target).toggleClass('collected');
+		    		if($(e.target).hasClass('collected')){
+						axios.post(url.global.baseurl + 'getCollected', qs.stringify({username})).then(function(res){
+							console.log(res);
+
+							//没有收藏商品数据返回时，
+							if(!res.data.status){
+								this.collectGoods.push(id);
+							} else {
+								this.collectGoods = res.data.data;
+
+								//遍历收藏的商品；
+								var arr = res.data.data.filter(item=>{
+									return item == id;
+								});
+								if(arr.length <= 0 ){
+									this.collectGoods.push(id);
+								}
+							}
+							//将要收藏的商品写入数据库；
+							axios.post(url.global.baseurl + 'setCollected', qs.stringify({collected: this.collectGoods})).then(function(res){
+
+							}.bind(this));
+
+							
+							// console.log('collected', this.collectGoods, this.$store.state.home.currentId);
+						}.bind(this));
+		    		
+		    		}
+
+		    	}
+
+
+				
 			}
 		}
 

@@ -108,6 +108,19 @@ module.exports = {
 				callback({status: true, message: '地址更新成功！', data: results});
 			})
 		})
+	},
+	getCollected: function(table, data, callback){
+		var username = data.username;
+		var condition = 'select collected from '+ table +' where username = ?';
+		sql.query(condition, [username], function(err, results, fields){
+			console.log('collected', results[0].collected)
+			
+			if(results[0].collected == ''){
+				callback({status: false, message: '查询到收藏的商品！', data: null});
+			} else {
+				callback({status: true, message: '没有查询到收藏的商品！', data: results});
+			}
+		})
 	}
 }
 

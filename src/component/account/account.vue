@@ -92,7 +92,7 @@
                 router.push('/login');
             },
             mydetial: function(){
-                alert('mydetail')
+                router.push('/myInfo');
             }
         }
 	}
