@@ -101,7 +101,7 @@
 						<em @click = "collected"></em>
         			</li>
         			<li>
-						<em class="share"></em>
+						<em class="share" @click = "showCollected"></em>
         			</li>
         		</ul>
         	</div>
@@ -224,6 +224,17 @@
 			});
 		},
 		methods: {
+			showCollected: function(){
+				var username = localStorage.getItem('username');
+				if(username){
+				    username = JSON.parse(localStorage.getItem('username')).username;
+				} else {
+				    username = null;
+				}
+				axios.post(url.global.baseurl + 'showCollected', qs.stringify({collected: this.collectGoods, username: username})).then(function(res){
+					console.log('235',res)
+				}.bind(this));	
+			},
 			addCart: function(e){
 				console.log(this.$store.state.home.currentId, e.target);
 
@@ -249,10 +260,10 @@
 							if(!res.data.status){
 								this.collectGoods.push(id);
 							} else {
-								this.collectGoods = res.data.data;
+								this.collectGoods = JSON.parse(res.data.data[0].collected);
 
 								//遍历收藏的商品；
-								var arr = res.data.data.filter(item=>{
+								var arr = this.collectGoods.filter(item=>{
 									return item == id;
 								});
 								if(arr.length <= 0 ){
@@ -260,20 +271,30 @@
 								}
 							}
 							//将要收藏的商品写入数据库；
-							axios.post(url.global.baseurl + 'setCollected', qs.stringify({collected: this.collectGoods})).then(function(res){
-
+							console.log('collected', this.collectGoods)
+							axios.post(url.global.baseurl + 'updateCollected', qs.stringify({collected: this.collectGoods, username: username})).then(function(res){
+								console.log('收藏成功');
+								this.currentProduct[0].sales++;
 							}.bind(this));
-
-							
-							// console.log('collected', this.collectGoods, this.$store.state.home.currentId);
 						}.bind(this));
-		    		
+		    		} else {
+		    			axios.post(url.global.baseurl + 'getCollected', qs.stringify({username})).then(function(res){
+		    				this.collectGoods = JSON.parse(res.data.data[0].collected);
+		    				this.collectGoods.map((item, idx)=>{
+		    					if(item == id){
+		    						console.log(item,idx)
+		    						this.collectGoods.splice(idx, 1);
+		    					}
+		    				})
+		    				//将要收藏的商品写入数据库；
+		    				console.log('collected', this.collectGoods);
+		    				axios.post(url.global.baseurl + 'updateCollected', qs.stringify({collected: this.collectGoods, username: username})).then(function(res){
+								console.log('收藏取消');
+								this.currentProduct[0].sales--;
+		    				}.bind(this));		
+		    			}.bind(this));
 		    		}
-
-		    	}
-
-
-				
+		    	}	
 			}
 		}
 

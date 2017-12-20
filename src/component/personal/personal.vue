@@ -30,12 +30,12 @@
                     </a>
                 </li>
                 <li>
-                    <a class="accList_fav" href="/member/myfavorite.html" style="border-right:none;">
+                    <router-link to = "/collected">
                         <em></em>
                         <div class="accList_txt">
                             我的收藏<br><span>FAVORITE</span>
                         </div>
-                    </a>
+                    </router-link>
                 </li>
                 <li>
                     <a class="accList_coupon" href="/member/account/mycoupon.html">

@@ -50,4 +50,18 @@ exports.register = function (app){
 			response.send(data);
 		})
 	});
+	//更新用户收藏的商品；
+	app.post("/updateCollected", urlencodedParser, function(request, response){
+		//请求数据库；
+		sql.updateCollected("user", request.body, function(data){
+			response.send(data);
+		})
+	});
+	//展示用户收藏的商品；
+	app.post("/showCollected", urlencodedParser, function(request, response){
+		//请求数据库；
+		sql.showCollected("user", request.body, function(data){
+			response.send(data);
+		})
+	});
 }

@@ -116,10 +116,59 @@ module.exports = {
 			console.log('collected', results[0].collected)
 			
 			if(results[0].collected == ''){
-				callback({status: false, message: '查询到收藏的商品！', data: null});
+				callback({status: false, message: '没有查询到收藏的商品！', data: null});
 			} else {
-				callback({status: true, message: '没有查询到收藏的商品！', data: results});
+				callback({status: true, message: '查询到收藏的商品！', data: results});
 			}
+		})
+	},
+	updateCollected: function(table, data, callback){
+		var username = data.username;
+		var collected;
+		console.log('data', data.collected)
+		if(data.collected != 'undefined'){
+			collected = JSON.stringify(data.collected);
+		} else{
+			collected = '';
+		console.log('134', data);
+		}
+		var condition = 'UPDATE ' + table +' SET collected = ? WHERE username = ?';
+
+
+		sql.query(condition, [collected, username], function(err, results, fields){
+			console.log('collected', results)
+			callback({status: true, message: '收藏商品更新成功！', data: null});
+			
+		})
+	},
+	showCollected: function(table, data, callback){
+		var username = data.username;
+		var condition = 'select collected from ' + table + ' where username = ?';
+		var condition2 = 'select * from products';
+		var arr = [];
+		sql.query(condition2, [username], function(err, results, fields){
+			console.log('144',results.length);
+			sql.query(condition, [username], function(err1, results2, fields2){
+				console.log('146', results2[0].collected);
+
+				var collected;
+				if(results2[0].collected == ''){
+					collected = [];
+				}else{
+					collected = JSON.parse(results2[0].collected);
+				}
+				
+				var res = results.map(item=>{
+					collected.map(item2=>{
+						if(item.ID == item2){
+							arr.push(item);
+						}
+					})
+				});
+
+				console.log(arr);
+				callback({status: true, message: '收藏商品展示成功！', data: arr})
+			})
 		})
 	}
 }
