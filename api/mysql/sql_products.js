@@ -37,15 +37,30 @@ module.exports = {
 		});
 	}*/
 	test: function(table, data, callback){
-		console.log('test', data)
-		var condition = 'select * from '+ table;
+		console.log('test', data);
+		TopClient = require('node-taobao-topclient').default;
+		var client = new TopClient({
+		    'appkey': 'appkey',
+		    'appsecret': 'secret',
+		    'REST_URL': 'http://gw.api.taobao.com/router/rest'
+		});
+		console.log(TopClient)
+		client.execute('taobao.item.detail.get', {
+		    'params':'areaId',
+		    'item_id':'545469636086',
+		    'fields':'item,price,delivery,skuBase,skuCore,trade,feature,props,debug'
+		}).then(function(error, response) {
+		    if (!error) console.log(response);
+		    else console.log(error);
+		})
+		/*var condition = 'select * from '+ table;
 		sql.query(condition, function(err, results, fields){console.log(results)
 			if(results.length > 0){
 				callback({status: true, message: '查询到所有商品！', data: results});
 			} else {
 				callback({status: false, message: '没有查询到所有商品！', data: null});
 			}
-		})
+		})*/
 	},
 	queryProducts: function(table, data, callback){
 		var defaultData = {pageNo: 1, qty: 10};

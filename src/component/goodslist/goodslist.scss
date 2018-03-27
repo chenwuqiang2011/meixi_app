@@ -63,7 +63,7 @@
 	}
 	.goodslist-goods{
 		flex: 1;
-		overflow-x: hidden;
+		overflow: hidden;
 		padding-left: 1%;
 		.goodslist-goods-show{
 			width: 100%;
@@ -109,18 +109,19 @@
 					}
 				}
 			}
+			.loadMore{
+				text-align: center;
+				margin-bottom:1rem;
+				padding: 0.2rem;
+			}
+			.noMore{
+				text-align: center;
+				margin-bottom:1rem;
+				padding: 0.2rem;
+				display: none;
+			}
 		}
-		.loadMore{
-			text-align: center;
-			margin-bottom:1rem;
-			padding: 0.2rem;
-		}
-		.noMore{
-			text-align: center;
-			margin-bottom:1rem;
-			padding: 0.2rem;
-			display: none;
-		}
+	
 		.pubgoTop {
 		    width: 0.6rem;
 		    height: 0.6rem;

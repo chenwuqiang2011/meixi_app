@@ -15,6 +15,9 @@ import nav2 from '../component/nav/nav2.vue';
 import cart from '../component/cart/cart.vue';
 import myInfo from '../component/myInfo/myInfo.vue';
 import collected from '../component/collected/collected.vue';
+import about from '../component/about/about.vue';
+import test from '../component/test/test.vue';
+import loop from '../component/test/loop.vue';
 
 
 Vue.use(VueRouter);
@@ -37,7 +40,10 @@ const router = new VueRouter({
 				{path: '/add', component: add},
 				{path: '/cart', component: cart},
 				{path: '/myInfo', component: myInfo},
-				{path: '/collected', component: collected}
+				{path: '/collected', component: collected},
+				{path: '/about', component: about},
+				{path: '/test', component: test},
+				{path: '/loop', component: loop}
 			]
 		}
 		//{path: '/home', component: foodlist},设置默认级路由并显示；

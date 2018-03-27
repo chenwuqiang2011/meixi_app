@@ -13,7 +13,7 @@
 				<li class="goodslist-filter">筛选</li>
 			</ul>
 		</div>
-		<div class="goodslist-goods">
+		<div class="goodslist-goods" ref = "wrapper">
 			<div class="goodslist-goods-show">
 				
 
@@ -28,10 +28,12 @@
 							<span class = "oldPrice" v-text = "val.oldPrice"></span>
 						</p>
 					</li>
+
 				</ul>
+				<div class="loadMore" @touchend = "loadMore" >点击加载更多</div>
+				<div class="noMore">没有更多商品了</div>
 			</div>
-			<div class="loadMore" @click = "loadMore" >点击加载更多</div>
-			<div class="noMore">没有更多商品了</div>
+			
 			<div class="pubgoTop" @click = "toTop">
 			</div>
 		</div>
@@ -45,6 +47,8 @@
 	import qs from 'qs';
 	import router from '../../router';
 	import spinner from '../spinner/spinner.vue';
+
+	import Bscroll from 'better-scroll';
 
 	export default {
 		components: {
@@ -68,6 +72,7 @@
 			}.bind(this));
 		},
 		mounted: function(){
+		
 			var that = this;
 			var data =  qs.stringify({pageNo: that.pageNo, qty: that.qty});
 			$('.goodslist-title').on('click', 'li', function(){
@@ -128,7 +133,15 @@
 						});
 					}
 				}
+
 			});
+			//惯性滑动；
+			// this.$nextTick(() => {
+			//     this.scroll = new Bscroll(this.$refs.wrapper, {})
+			// })
+			setTimeout(() => {
+				this.scroll = new Bscroll(this.$refs.wrapper, {click: true})
+			}, 20)
 		},
 		methods: {
 			toTop: function(){

@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li>
-                    <router-link to = "/collected">
+                    <router-link to = "/collected" class="accList_fav">
                         <em></em>
                         <div class="accList_txt">
                             我的收藏<br><span>FAVORITE</span>
@@ -54,12 +54,12 @@
                     </router-link>
                 </li>
                 <li>
-                    <a class="accList_about" href="/services/about.html" style="border-right:none;">
+                    <router-link class="accList_about" to="/about">
                         <em></em>
                         <div class="accList_txt">
                             关于美西<br><span>ABOUT</span>
                         </div>
-                    </a>
+                    </router-link>
                 </li>
             </ul>
         </div>

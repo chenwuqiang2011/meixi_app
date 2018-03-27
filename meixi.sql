@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2017-12-07 16:03:21
+Date: 2018-03-23 17:49:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -159,19 +159,20 @@ CREATE TABLE `user` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `address` varchar(8000) NOT NULL,
+  `collected` varchar(255) NOT NULL,
   PRIMARY KEY (`userId`)
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'chen', '123456', '');
-INSERT INTO `user` VALUES ('2', 'chen', '123456', '');
-INSERT INTO `user` VALUES ('3', 'chen', '123456', '');
-INSERT INTO `user` VALUES ('4', 'chen', '123456', '');
-INSERT INTO `user` VALUES ('5', 'chen', '123456', '');
-INSERT INTO `user` VALUES ('6', 'chen', '123456', '');
-INSERT INTO `user` VALUES ('7', 'chen', '123456', '');
-INSERT INTO `user` VALUES ('8', 'chen', '123456', '');
-INSERT INTO `user` VALUES ('9', '18520521259', 'zZ123456', '[{\"name\":\"1000个手机\",\"tel\":\"13800138000\",\"province\":\"广东省\",\"city\":\"广州市\",\"area\":\"天河区\",\"street\":\"111\",\"value\":\"true\"},{\"name\":\"a\",\"tel\":\"18520521259\",\"province\":\"广东省\",\"city\":\"广州市\",\"area\":\"海珠区\",\"street\":\"123\",\"value\":\"false\"}]');
+INSERT INTO `user` VALUES ('1', 'chen', '123456', '', '');
+INSERT INTO `user` VALUES ('2', 'chen', '123456', '', '');
+INSERT INTO `user` VALUES ('3', 'chen', '123456', '', '');
+INSERT INTO `user` VALUES ('4', 'chen', '123456', '', '');
+INSERT INTO `user` VALUES ('5', 'chen', '123456', '', '');
+INSERT INTO `user` VALUES ('6', 'chen', '123456', '', '');
+INSERT INTO `user` VALUES ('7', 'chen', '123456', '', '');
+INSERT INTO `user` VALUES ('8', 'chen', '123456', '', '');
+INSERT INTO `user` VALUES ('9', '18520521259', 'zZ123456', '[{\"name\":\"1000个手机\",\"tel\":\"13800138000\",\"province\":\"广东省\",\"city\":\"广州市\",\"area\":\"天河区\",\"street\":\"111\",\"value\":\"false\"},{\"name\":\"a\",\"tel\":\"18520521259\",\"province\":\"广东省\",\"city\":\"广州市\",\"area\":\"海珠区\",\"street\":\"123\",\"value\":\"true\"}]', '[\"1\"]');
 SET FOREIGN_KEY_CHECKS=1;

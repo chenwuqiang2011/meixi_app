@@ -124,21 +124,10 @@
           this.collectedGoods.map(item=>{
             collected.push(item.ID);
           });
-        //   //执行取消收藏操作;
-        //   // $(e.target).parents('li').remove();
-
-        //   collected.map((item, idx)=>{
-        //     console.log(item,currentId)
-        //     if(item == currentId){
-        //       collected.splice(idx, 1);
-        //       this.collectedcollected.splice(idx, 1);
-        //     }
-        //   })
+      
           //将要收藏的商品写入数据库；
           console.log(collected)
-          // if(collected.length == 0){
-          //   collected = null;
-          // }
+        
           axios.post(url.global.baseurl + 'updateCollected', qs.stringify({collected: collected, username: this.username})).then(function(res){
             console.log('收藏成功');
           }.bind(this));

@@ -18,6 +18,8 @@ a{
 .mx-home{
 	width: 100%;
 	height: 100%;
+	display: flex;
+	flex-direction: column;
 	.mx-header{
 		width: 100%;
 		background: #000;
@@ -67,6 +69,20 @@ a{
 				background-size: 0.75rem 0.9rem;
 			}
 		}
+	}
+	.section{
+		flex: 1;
+		overflow: hidden;
+		height: 100%;
+	}
+	.back{
+		background: red;
+		width: 0.6rem;
+		height: 0.6rem;
+		position: fixed;
+		right: 0.6rem;
+		bottom: 0.6rem;
+		border-radius: 50%;
 	}
 	.mx-lamp{
 		width: 100%;

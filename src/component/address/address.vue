@@ -64,6 +64,14 @@
    			}.bind(this));
 	    },
         methods: {
+          test: function(){
+            //test;
+            axios.post(url.global.baseurl + 'test', qs.stringify({test: 'test'})).then(function(res){
+              console.log(res);
+              
+
+            }.bind(this));
+          },
        		set: function(e){
        			console.log($(e.target).parents('li').data('id'));
 

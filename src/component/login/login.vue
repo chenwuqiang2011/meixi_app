@@ -130,7 +130,7 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             console.log('login', this.ruleForm2.pass, this.ruleForm2.age);
-            axios.post('http://localhost:1000/login',  qs.stringify({username: this.ruleForm2.pass, password: this.ruleForm2.age})).then(function(res){
+            axios.post(url.global.baseurl + 'login',  qs.stringify({username: this.ruleForm2.pass, password: this.ruleForm2.age})).then(function(res){
               console.log(res);
               if(res.data.status){
                 var username = localStorage.getItem('username');

@@ -37,7 +37,7 @@
 						<el-switch v-model="value" active-color="#13ce66" inactive-color="#ddd" ></el-switch>
 					</li>
 				</ul>
-				<button @click = "submit">保存</button>
+				<span @click = "update" class = "update">保存</span>
 			</form>
 		</div>  
         <Foot></Foot> 
@@ -104,7 +104,7 @@
       		
 	    },
         methods: {
-       		submit: function(){
+       		update: function(){
        			console.log($('.el-input__inner').val(), this.value);
        			var add_name = $('#add_name').val().trim(),
        				add_tel = $('#add_tel').val(),
@@ -183,7 +183,7 @@
        				console.log(res);
        				this.$message({
 	       				showClose: true,
-						message: '地址新增成功！',
+						message: '地址修改成功！',
 						type: 'success'
 	       			});
 	       			router.push('/address');

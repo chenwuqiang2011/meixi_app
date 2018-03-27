@@ -24,6 +24,17 @@ import './assets/font-awesome/css/font-awesome.css';
 import VueAreaLinkage from 'vue-area-linkage';
 Vue.use(VueAreaLinkage);
 
+//VueAwesomeSwiper滑块插件；
+import VueAwesomeSwiper from 'vue-awesome-swiper';
+// require styles
+import 'swiper/dist/css/swiper.css';
+Vue.use(VueAwesomeSwiper);
+
+// 轮播图，在入口文件中引入(暂时不支持单组件引入的方式):
+import wcSwiper from 'wc-swiper';
+import 'wc-swiper/style.css';
+Vue.use(wcSwiper);
+
 Vue.prototype.$ajax = axios;
 Vue.use(ElementUI);
 Vue.use(animate);

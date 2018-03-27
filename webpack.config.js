@@ -1,4 +1,4 @@
-var path = require('path')
+  var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
@@ -90,7 +90,8 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  // 需要把 config/index.js里的devtool: '#eval-source-map'改为devtool:'inline-source-map'，就可以访问到了。
+  devtool: 'inline-source-map'
 }
 
 if (process.env.NODE_ENV === 'production') {

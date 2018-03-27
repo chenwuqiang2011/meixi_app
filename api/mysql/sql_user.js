@@ -126,8 +126,9 @@ module.exports = {
 		var username = data.username;
 		var collected;
 		console.log('data', data.collected)
-		if(data.collected != 'undefined'){
+		if(data.collected){
 			collected = JSON.stringify(data.collected);
+			console.log(12)
 		} else{
 			collected = '';
 		console.log('134', data);
@@ -149,7 +150,7 @@ module.exports = {
 		sql.query(condition2, [username], function(err, results, fields){
 			console.log('144',results.length);
 			sql.query(condition, [username], function(err1, results2, fields2){
-				console.log('146', results2[0].collected);
+				console.log('146', results2);
 
 				var collected;
 				if(results2[0].collected == ''){
