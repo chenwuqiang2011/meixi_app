@@ -146,7 +146,19 @@
 		methods: {
 			toTop: function(){
 				// 返回顶部；
-				$('.goodslist-goods').animate({scrollTop: 0});
+				console.log('to top', this.scroll.startY);
+				// this.scroll.scrollTo(0, -this.scroll.startY, 1000);
+				/*
+					scrollTo(x, y, time, easing)
+					滚动到某个位置，x,y 代表坐标，time 表示动画时间，easing 表示缓动函数
+					scroll.scrollTo(0, 500)
+
+					scrollToElement(el, time, offsetX, offsetY, easing)
+					滚动到某个元素，el（必填）表示 dom 元素，time 表示动画时间，offsetX 和 offsetY 表示坐标偏移量，easing 表示缓动函数
+				*/
+				this.scroll.scrollToElement('.goodslist-goods', 1000);
+
+				// $('.goodslist-goods').animate({scrollTop: 0});
 			},
 			loadMore: function(){
 				console.log('loadMore', this.pageNo);

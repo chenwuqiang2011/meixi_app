@@ -65,7 +65,7 @@
                     momentum: false,   //关闭或者打开惯性运动的执行
                     snap: true,       //隔断（翻页）
                     snapLoop: this.loop,   //无限滚动
-                    snapThreshold: 0,
+                    snapThreshold: 0.3,
                     snapSpeed: 400,   //滑动的时间
                 })
                 this.scroll.on('scrollEnd', () => {
@@ -73,6 +73,8 @@
                     if(this.loop){
                         pageIndex -= 1;
                     }
+                    console.log(pageIndex)
+                    
                     this.currentPageIndex = pageIndex;
                     if(vm.autoPlay) {
                         vm.play();
@@ -94,7 +96,10 @@
                 this.timer = setTimeout(() => {
                     vm.scroll.goToPage(pageIndex, 0 , 400);//跳转到的页数 初始化页数 滑动总时间
                 },vm.interval)
-            }
+            },
+            destroyed() {
+                clearTimeout(this.timer)
+            },
         }
     }
 </script>
@@ -109,7 +114,7 @@
         height: 150px;
         /*background: red;*/
         .slider-item{
-            width:100vw;
+            width:100px;
             height: 150px;
             background: yellowgreen;
             float: left;

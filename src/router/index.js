@@ -18,11 +18,14 @@ import collected from '../component/collected/collected.vue';
 import about from '../component/about/about.vue';
 import test from '../component/test/test.vue';
 import loop from '../component/test/loop.vue';
+import vertical from '../component/test/vertical.vue';
 
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
+	//mode: 'history',去除 # 符号；
+	mode: 'history',
 	routes:[
 		
 		{path:'/',component:home,redirect: '/',
@@ -43,7 +46,8 @@ const router = new VueRouter({
 				{path: '/collected', component: collected},
 				{path: '/about', component: about},
 				{path: '/test', component: test},
-				{path: '/loop', component: loop}
+				{path: '/loop', component: loop},
+				{path: '/vertical', component: vertical}
 			]
 		}
 		//{path: '/home', component: foodlist},设置默认级路由并显示；

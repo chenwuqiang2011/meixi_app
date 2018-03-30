@@ -85,7 +85,9 @@
 				    height: 0.6rem;
 				    margin: 0 auto;
 				    background: url(../../assets/imgs/accico.png) no-repeat;
+				    -ms-background: url(../../assets/imgs/accico.png) no-repeat;
 				    background-size: auto 0.6rem;
+				    -ms-background-size: auto 0.6rem;
 			    }
 			    .accList_txt {
 				    text-align: center;
@@ -99,19 +101,24 @@
 				}
 	    	}
 	    	.accList_order em {
-			    background-position: -35px 0;
+			    background-position: -0.7rem;
+			    -ms-background-position: -0.7rem;
 			}
 			.accList_fav em {
-			    background-position: -70px 0;
+			    background-position: -1.4rem;
+			    -ms-background-position: -1.4rem;
 			}
 			.accList_coupon em {
-			    background-position: -105px 0;
+			    background-position: -2.1rem;
+			   -ms-background-position: -2.1rem;
 			}
 			.accList_address em {
-			    background-position: -140px 0;
+			    background-position: -2.8rem;
+			    -ms-background-position: -2.8rem;
 			}
 			.accList_about em {
-			    background-position: -175px 0;
+			    background-position: -3.5rem;
+			    -ms-background-position: -3.5rem;
 			}
 	    }
 	}

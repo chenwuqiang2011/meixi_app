@@ -1,95 +1,103 @@
 <template>
-	<div class="meixi-details">
-		<div class="details">
-			<div class="details-img">
-				<img :src='"src/assets/imgs/" + product.imgurl'  alt="">
-				<!-- <img-zoom :src='"src/assets/imgs/" + product.imgurl' width="450" height="250" :bigsrc= '"src/assets/imgs/" + product.imgurl' :configs="configs"></img-zoom> -->
+	<div class="meixi-details" >
+		<transition name = "fade">
+			<div class="bigImg" @click = "show = !show" v-if = "show">
+				<img :src='"src/assets/imgs/" + product.imgurl'  alt="" >
 			</div>
-			<div class="details-name">
-	            <div class="prodetailName">
-	            	<span class="cp_global" v-show = "product.isFamous == 'Y' ? true : false">全球购</span>
-	            	<a href="#" v-text = "product.name"></a><br>
-	            	<span v-text = "product.category"></span>
-	                
-	            </div>
-	            <div class="prodetailPrice">
-	                <div class="float_l" v-text = "product.nowPrice">
-	                </div>
-	                <div class="float_r">
-	                    <em></em><span v-text = "product.sales"></span>
-	                </div>
-	            </div>
-	        </div>
-	        <div class="desc">
-	        	<table>
-	        		<tr>
-	        			<th>颜色:</th>
-	        		</tr>
-	        		<tr>
-	        			<td>
-	        				<span class="color">蓝色</span>
-	        			</td>
-	        		</tr>
-	        		<tr>
-	        			<th>尺码:</th>
-	        		</tr>
-	        		<tr>
-	        			<td>
-	        				<ul class = "size">
-	        					<li>S</li>
-	        					<li>M</li>
-	        					<li>L</li>
-	        					<li>XL</li>
-	        					<li>XLL</li>
-	        				</ul>
-	        			</td>
-	        		</tr>
-	        	</table>
-	        </div>
-	        <div class="product-msg">
-	        	<p>商品信息</p>
-	        	<table>
-		        	<tr>
-		        		<th>美西编号：</th>
-		        		<td>	90516</td>
-		        	</tr>
-		        	<tr>
-		        		<th>颜　　色：</th>
-		        		<td>	蓝色</td>
-		        	</tr>
-		        	<tr>
-		        		<th>商品货号：</th>
-		        		<td>	16P0980 200</td>
-		        	</tr>
-		        	<tr>
-		        		<th>材　　质：</th>
-		        		<td>	全棉</td>
-		        	</tr>
-		        	<tr>
-		        		<th>产　　地：</th>
-		        		<td>	意大利</td>
-		        	</tr>
-		        	<tr>
-		        		<th>适用人群：</th>
-		        		<td>	男士</td>
-		        	</tr>
-		        	<tr>
-		        		<th>商品描述：</th>
-		        		<td>	蓝色全棉材质，品牌Logo绣饰，纽扣闭合，长袖POLO衫款式</td>
-		        	</tr>
-		        	<tr>
-		        		<th>到货时间：</th>
-		        		<td>	该商品到货时间预计5-10个工作日</td>
-		        	</tr>
-		        	<tr>
-		        		<th>退货说明：</th>
-		        		<td>	若该商品无质量问题不支持退换货。</td>
-		        	</tr>
-	        	</table>
-	        	<div class="picture">
-	        		<img :src='"src/assets/imgs/" + product.imgurl'  alt="">
-	        	</div>
-	        </div>
+		</transition>
+		<div class="details wrapper" ref = "wrapper">
+			<div>
+				
+				<div class="details-img">
+					<img :src='"src/assets/imgs/" + product.imgurl'  alt="" @click = "show = !show" >
+					<!-- <img-zoom :src='"src/assets/imgs/" + product.imgurl' width="450" height="250" :bigsrc= '"src/assets/imgs/" + product.imgurl' :configs="configs"></img-zoom> -->
+				</div>
+				<div class="details-name">
+		            <div class="prodetailName">
+		            	<span class="cp_global" v-show = "product.isFamous == 'Y' ? true : false">全球购</span>
+		            	<a href="#" v-text = "product.name"></a><br>
+		            	<span v-text = "product.category"></span>
+		                
+		            </div>
+		            <div class="prodetailPrice">
+		                <div class="float_l" v-text = "product.nowPrice">
+		                </div>
+		                <div class="float_r">
+		                    <em></em><span v-text = "product.sales"></span>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="desc">
+		        	<table>
+		        		<tr>
+		        			<th>颜色:</th>
+		        		</tr>
+		        		<tr>
+		        			<td>
+		        				<span class="color">蓝色</span>
+		        			</td>
+		        		</tr>
+		        		<tr>
+		        			<th>尺码:</th>
+		        		</tr>
+		        		<tr>
+		        			<td>
+		        				<ul class = "size">
+		        					<li>S</li>
+		        					<li>M</li>
+		        					<li>L</li>
+		        					<li>XL</li>
+		        					<li>XLL</li>
+		        				</ul>
+		        			</td>
+		        		</tr>
+		        	</table>
+		        </div>
+		        <div class="product-msg">
+		        	<p>商品信息</p>
+		        	<table>
+			        	<tr>
+			        		<th>美西编号：</th>
+			        		<td>	90516</td>
+			        	</tr>
+			        	<tr>
+			        		<th>颜　　色：</th>
+			        		<td>	蓝色</td>
+			        	</tr>
+			        	<tr>
+			        		<th>商品货号：</th>
+			        		<td>	16P0980 200</td>
+			        	</tr>
+			        	<tr>
+			        		<th>材　　质：</th>
+			        		<td>	全棉</td>
+			        	</tr>
+			        	<tr>
+			        		<th>产　　地：</th>
+			        		<td>	意大利</td>
+			        	</tr>
+			        	<tr>
+			        		<th>适用人群：</th>
+			        		<td>	男士</td>
+			        	</tr>
+			        	<tr>
+			        		<th>商品描述：</th>
+			        		<td>	蓝色全棉材质，品牌Logo绣饰，纽扣闭合，长袖POLO衫款式</td>
+			        	</tr>
+			        	<tr>
+			        		<th>到货时间：</th>
+			        		<td>	该商品到货时间预计5-10个工作日</td>
+			        	</tr>
+			        	<tr>
+			        		<th>退货说明：</th>
+			        		<td>	若该商品无质量问题不支持退换货。</td>
+			        	</tr>
+		        	</table>
+		        	<div class="picture">
+		        		<img :src='"src/assets/imgs/" + product.imgurl'  alt="">
+		        	</div>
+		        </div>
+			</div>
 		</div>
         <div class="cartFooter">
         	<div class="cartFooter_l">
@@ -125,18 +133,22 @@
 	//放大镜;
 	// import imgZoom from 'vue2.0-zoom';
 
+	import Bscroll from 'better-scroll';
+
 	export default {
 		data: function(){
 			return {
 				product: {},
 				currentProduct: [],
-				collectGoods: []
+				collectGoods: [],
+				show: false
 			}
 		},
 		components: {
 			// imgZoom
 		},
 		created: function(){
+
 			var id = this.$store.state.home.currentId;
 			console.log(123, id, this.product)
 			axios.post(url.global.baseurl + 'getProduct', qs.stringify({id})).then(function(res){
@@ -154,6 +166,14 @@
 
 		},
 		mounted: function(){
+			/*setTimeout(() => {
+				this.scroll = new Bscroll(this.$refs.wrapper, {click: true})
+			}, 20);*/
+
+			this.$nextTick(() => {
+			    this.scroll = new Bscroll(this.$refs.wrapper, {click: true})
+			})
+
 			$("<li/>").text('123').appendTo($('.size'));
 			//码数选择；
 			$('.size').on('click', 'li', function(e){
@@ -222,8 +242,11 @@
 					}
 				});
 			});
+
+		
 		},
 		methods: {
+			
 			showCollected: function(){
 				var username = localStorage.getItem('username');
 				if(username){
